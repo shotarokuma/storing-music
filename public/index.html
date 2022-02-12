@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MongoDB</title>
+    
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+    
+    <div>
+        <h2>Add New Band</h2>
+        
+        <form action="/bands" method="post">
+            <label>
+                Name of band: 
+                <input type="text" name="name"/>
+            </label>
+            
+             <input type="submit" value="Submit Band">
+        </form>
+    </div>
+    
+    <div>
+        <h2>Add New Album</h2>
+        
+        <form action="/albums" method="post">
+            <label>
+                Which band released this album? 
+                <input type="text" name="band"/>
+            </label>
+             <label>
+                Genre of album:
+                <input type="text" name="genre"/>
+            </label>
+            <label>
+                Name of Album:
+                <input type="text" name="name"/>
+            </label>
+            
+             <input type="submit" value="Submit Album">
+        </form>
+    </div>
+    
+    <div>
+        <h2>Add New Song</h2>
+        
+        <form action="/songs" method="post">
+            <label>
+                On which album is this song? 
+                <input type="text" name="album"/>
+            </label>
+            <label>
+                Name of Song:
+                <input type="text" name="name"/>
+            </label>
+
+             <input type="submit" value="Submit Song">
+        </form>
+    
+    </div>
+    
+    <div>
+        <a href="/albums">See all albums</a>
+        <a href="/bands">See all Bands</a>
+    </div>
+    
+</body>
+</html>

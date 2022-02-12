@@ -1,0 +1,8 @@
+input, label, a {
+    display:block;
+}
+
+body {
+    display: grid;
+    grid-template-columns:auto auto auto;
+}
