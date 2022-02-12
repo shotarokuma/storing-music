@@ -22,8 +22,11 @@ const { Song } = require('./models/song.js');
 app.post('/bands', (req, res) => {
   let band = new Band(req.body);
   band.save(error => {
-    if (error) res.status(500).json(error);
-    res.status(201).json(band);
+    if (error) {
+      res.status(500).json(error);
+    } else {
+      res.status(201).json(band);
+    }
   });
 });
 
@@ -34,12 +37,15 @@ app.post('/albums', (req, res) => {
     } else {
       let album = new Album(req.body);
       album.save(error => {
-        if (error) res.status(500).json(error);
-        band.albums.push(album._id);
-        band.save(error => {
-          if (error) res.status(500).json(error);
-          res.status(201).json(album);
-        });
+        if (error) {
+          res.status(500).json(error);
+        } else {
+          band.albums.push(album._id);
+          band.save(error => {
+            if (error) res.status(500).json(error);
+            res.status(201).json(album);
+          });
+        }
       });
     }
   });
@@ -73,7 +79,7 @@ app.get('/albums', (req, res) => {
   })
 });
 
-app.get('/bands', (req,res) => {
+app.get('/bands', (req, res) => {
   Band.find({})
     .populate('albums')
     .exec(
